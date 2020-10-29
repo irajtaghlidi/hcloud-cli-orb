@@ -1,13 +1,10 @@
 description: >
-  Sample example description.
-# Provide a use-case based example for using this orb.
-# Everything in the `usage` section will be displayed in the orb registry.
-# Comments are not retained.
+  Install Hetzner Cloud CLI (hcloud) for example.
 usage:
   version: 2.1
   orbs:
-    <orb-name>: <namespace>/<orb-name>@1.2.3
+    hcloud-cli: irajtaghlidi/hcloud-cli@x.y.z # change version number
   workflows:
     use-my-orb:
       jobs:
-        - <orb-name>/<job-name>
+        - hcloud-cli/install
