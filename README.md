@@ -1,4 +1,4 @@
-# Hetzner CLoud CLI Orb
+# Hetzner CLoud CLI CircleCI Orb
 
 [![CircleCI Build Status](https://circleci.com/gh/irajtaghlidi/hcloud-cli-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/irajtaghlidi/hcloud-cli-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/irajtaghlidi/hcloud-cli)](https://circleci.com/orbs/registry/orb/irajtaghlidi/hcloud-cli) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/irajtaghlidi/hcloud-cli-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
