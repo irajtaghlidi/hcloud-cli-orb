@@ -1,0 +1,31 @@
+description: |
+  Install the hcloud CLI. When installing within the Docker executor.
+parameters:
+  version:
+    type: string
+    default: "v1.19.1"
+    description: "Version of the CLI to install. Must contain the full version number as it appears in the URL on this page: https://github.com/hetznercloud/cli/releases"
+  install-location:
+    type: string
+    default: "/usr/local/bin"
+    description: "Location of hcound CLI binary to install."
+
+steps:
+  - run:
+      name: Install latest hcloud CLI version, if not available
+      command: |
+        install () {
+          # Set sudo to work whether logged in as root user or non-root user
+          if [[ $EUID == 0 ]]; then export SUDO=""; else export SUDO="sudo"; fi
+          cd ~/
+          curl -LSs --retry 5 https://github.com/hetznercloud/cli/releases/download/<<parameters.version>>/hcloud-linux-amd64.tar.gz | tar xz
+          $SUDO mv hcloud <<parameters.install-location>>
+        }
+        if [[ $(command -v hcloud) == "" ]]; then
+          install
+        else
+          echo "hcloud CLI is already installed."
+        fi
+  - run:
+      name: "hcloud CLI version"
+      command: hcloud version

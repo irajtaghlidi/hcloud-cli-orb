@@ -1,0 +1,14 @@
+description: "Initilize the hcloud CLI."
+
+parameters:
+  hcloud-token-key:
+    description: Name of environment variable storing the token key.
+    type: env_var_name
+    default: HCLOUD_TOKEN_KEY
+
+steps:
+  - run:
+      name: Initialize hcloud CLI to connect to Hetzner Cloud
+      command: |
+        # Initialize hcloud CLI
+        export HCLOUD_TOKEN=<<parameters.hcloud-token-key>>

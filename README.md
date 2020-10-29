@@ -1,19 +1,15 @@
-# Orb Project Template
+# Hetzner CLoud CLI Orb
 
 [![CircleCI Build Status](https://circleci.com/gh/irajtaghlidi/hcloud-cli-orb.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/irajtaghlidi/hcloud-cli-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/irajtaghlidi/hcloud-cli)](https://circleci.com/orbs/registry/orb/irajtaghlidi/hcloud-cli) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/irajtaghlidi/hcloud-cli-orb/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
 
-
-A starter template for orb projects. Build, test, and publish orbs automatically on CircleCI with [Orb-Tools](https://circleci.com/orbs/registry/orb/circleci/orb-tools).
-
-Additional READMEs are available in each directory.
+Easily install and configure the Hetzner Cloud CLI in your CircleCI jobs.
 
 
 
 ## Resources
 
 [CircleCI Orb Registry Page](https://circleci.com/orbs/registry/orb/irajtaghlidi/hcloud-cli-orb) - The official registry page of this orb for all versions, executors, commands, and jobs described.
-[CircleCI Orb Docs](https://circleci.com/docs/2.0/orb-intro/#section=configuration) - Docs for using and creating CircleCI Orbs.
 
 ### How to Contribute
 

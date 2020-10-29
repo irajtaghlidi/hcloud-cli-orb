@@ -1,0 +1,18 @@
+description: Install hcloud CLI and initialize to connect to Hetzner Cloud.
+
+executor: <<parameters.executor>>
+
+parameters:
+  executor:
+    description: Executor to use for this job. Defaults to this orb's default executor.
+    type: executor
+    default: default
+  hcloud-token-key:
+    description: Name of environment variable storing the token key.
+    type: env_var_name
+    default: HCLOUD_TOKEN_KEY
+
+steps:
+  - install
+  - initialize:
+      hcloud-token-key: <<parameters.hcloud-token-key>>
