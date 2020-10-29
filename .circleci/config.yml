@@ -1,5 +1,11 @@
 version: 2.1
 
+install-initialize_requires: &install-initialize_requires
+  [install-default]
+
+prod-deploy_requires: &prod-deploy_requires
+  [install_initialize-default]
+
 orbs:
   hcloud-cli: irajtaghlidi/hcloud-cli@<<pipeline.parameters.dev-orb-version>>
   orb-tools: circleci/orb-tools@10.0
@@ -19,6 +25,16 @@ parameters:
       A "dev:alpha" version must exist for the initial pipeline run.
     type: string
     default: "dev:alpha"
+
+jobs:
+  # default executor
+  install-default:
+    executor: hcloud-cli/default
+    steps:
+      - hcloud-cli/install
+
+install-post-steps: &install-post-steps
+  [run: hcloud version]
 
 workflows:
   # Prior to producing a development orb (which requires credentials) basic validation, linting, and even unit testing can be performed.
@@ -56,6 +72,15 @@ workflows:
   integration-test_deploy:
     when: << pipeline.parameters.run-integration-tests >>
     jobs:
+      # run job with all executors
+      - install-default:
+          context: orb-publishing
+          post-steps: *install-post-steps
+      - hcloud-cli/install_and_initialize_cli:
+          name: install_initialize-default
+          context: orb-publishing
+          requires: *install-initialize_requires
+          post-steps: *install-post-steps
       # Publish a semver version of the orb. relies on
       # the commit subject containing the text "[semver:patch|minor|major|skip]"
       # as that will determine whether a patch, minor or major
@@ -68,6 +93,7 @@ workflows:
           add-pr-comment: false
           fail-if-semver-not-indicated: true
           publish-version-tag: true
+          requires: *prod-deploy_requires
           filters:
             branches:
               only: master
