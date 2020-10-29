@@ -36,7 +36,6 @@ workflows:
           requires:
             - orb-tools/lint
             - orb-tools/pack
-            - shellcheck/check
       # Publish development version(s) of the orb.
       - orb-tools/publish-dev:
           orb-name: irajtaghlidi/hcloud-cli
